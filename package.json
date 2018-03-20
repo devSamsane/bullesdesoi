@@ -5,9 +5,13 @@
   "scripts": {},
   "private": true,
   "dependencies": {
-    "@types/node": "^9.4.7"
+    "@types/node": "^9.4.7",
+    "glob": "^7.1.2",
+    "lodash": "^4.17.5"
   },
   "devDependencies": {
+    "@types/glob": "^5.0.35",
+    "@types/lodash": "^4.14.105",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-sourcemaps": "^2.6.4",
