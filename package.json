@@ -1,0 +1,19 @@
+{
+  "name": "bullesdesoi",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "private": true,
+  "dependencies": {
+    "@types/node": "^9.4.7"
+  },
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-typescript": "^4.0.1",
+    "run-sequence": "^2.2.1",
+    "ts-node": "^5.0.1",
+    "typescript": "^2.7.2"
+  }
+}
