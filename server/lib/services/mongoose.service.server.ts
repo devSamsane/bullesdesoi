@@ -3,6 +3,8 @@ import * as chalk from 'chalk';
 
 import { properties } from "../../config";
 import { userSchema } from '../../modules/user/model/schema/user.schema';
+import { User } from '../../modules/user/model/interface/user.interface';
+import { UserModel } from '../../modules/user/model/user.model';
 
 // Configuration Promise de mongoose
 require('mongoose').Promise = properties.config.db.promise;
@@ -39,14 +41,14 @@ export class MongooseService {
    * Connexion aux modèles
    * @memberof MongooseService
    */
-  public loadModels() {
+  public loadModels(): void {
 
     // Initialisation d'une connection à la db
     const connection: mongoose.Connection = mongoose.createConnection(this.uri);
 
     // Connexions aux models
     // Recencement de tous les models à faire ici
-    const User = connection.model('User', userSchema);
+    const User: mongoose.Model<UserModel> = connection.model('User', userSchema);
 
   }
 }
