@@ -23,7 +23,12 @@ export const DEVELOPMENT_PROPERTIES: Properties = {
   config: {
     db: {
       promise: global.Promise,
-      uri: 'http://localhost:27001/bullesdesoi'
+      uri: 'mongodb://localhost:27017/bullesdesoi-dev',
+      options: {
+        ssl: false,
+        appname: 'bullesdesoi',
+        autoReconnect: true
+      }
     },
     helmet: {
       hsts: {

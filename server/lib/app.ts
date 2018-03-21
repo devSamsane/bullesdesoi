@@ -2,8 +2,8 @@ import * as express from 'express';
 
 import { Middlewares } from './services/middlewares.service.server';
 import { Logger } from './services/logger.service.server';
+import { MongooseService } from './services/mongoose.service.server';
 
-// const expressLogger = ;
 
 export class App {
   public app: express.Application;
@@ -15,6 +15,9 @@ export class App {
 
     // Initialisation du logger
     this.app.use(new Logger().logExpress());
+
+    // Initialisation de la connexion à la bd
+    this.startMongoose();
 
     // Déclaration de l'instance des middlewares
     this.configMiddlewares(this.app);
@@ -50,5 +53,9 @@ export class App {
    */
   private configMiddlewares(app: express.Application) {
     Middlewares.init(app);
+  }
+
+  private startMongoose() {
+    new MongooseService().connectDB();
   }
 }

@@ -29,6 +29,7 @@ if (secure) {
     console.log();
     console.log(chalk.green(`Environnement:            ${process.env.NODE_ENV}`));
     console.log(chalk.green(`Serveur:                  ${serverType}`));
+    console.log(chalk.green(`db:                       ${properties.config.db.uri}`));
     console.log(chalk.white('----'));
   });
 
@@ -43,6 +44,7 @@ if (secure) {
     console.log();
     console.log(chalk.green(`Environnement:            ${process.env.NODE_ENV}`));
     console.log(chalk.green(`Serveur:                  ${serverType}`));
+    console.log(chalk.green(`db:                       ${properties.config.db.uri}`));
     console.log(chalk.white('----'));
   });
 }
