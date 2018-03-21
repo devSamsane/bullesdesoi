@@ -13,7 +13,7 @@ export const DEVELOPMENT_PROPERTIES: Properties = {
     host: '127.0.0.1',
     domain: 'localhost',
     secure: {
-      active: false,
+      active: true,
       ssl: false,
       privateKey: '../sslcerts/key.pem',
       publicKey: '../sslcerts/cert.pem',

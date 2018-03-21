@@ -51,3 +51,6 @@ chalkConf.txt
 
 # assets
 /src/assets/pictures/*
+
+# certs & keys
+/server/config/sslcerts/*
