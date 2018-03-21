@@ -31,6 +31,15 @@ export const DEVELOPMENT_PROPERTIES: Properties = {
         includeSubdomains: true,
         force: true
       }
+    },
+    log: {
+      fileLogger: {
+        directoryPath: process.cwd(),
+        filename: 'app-log.json',
+        maxFiles: 2,
+        maxsize: 10485760,
+        json: true
+      }
     }
   }
 }

@@ -1,6 +1,9 @@
 import * as express from 'express';
 
 import { Middlewares } from './services/middlewares.service.server';
+import { Logger } from './services/logger.service.server';
+
+// const expressLogger = ;
 
 export class App {
   public app: express.Application;
@@ -9,6 +12,9 @@ export class App {
 
     // Déclaration de l'instance de l'application express
     this.app = express();
+
+    // Initialisation du logger
+    this.app.use(new Logger().logExpress());
 
     // Déclaration de l'instance des middlewares
     this.configMiddlewares(this.app);
