@@ -1,5 +1,7 @@
 import * as express from 'express';
 
+import { Middlewares } from './services/middlewares.service.server';
+
 export class App {
   public app: express.Application;
 
@@ -41,6 +43,6 @@ export class App {
    * @memberof App
    */
   private configMiddlewares(app: express.Application) {
-
+    Middlewares.init(app);
   }
 }
