@@ -17,6 +17,7 @@ export class App {
     this.app.use(new Logger().logExpress());
 
     // Initialisation de la connexion à la bd
+    // Connexion aux modèles
     this.startMongoose();
 
     // Déclaration de l'instance des middlewares
@@ -57,5 +58,6 @@ export class App {
 
   private startMongoose() {
     new MongooseService().connectDB();
+    new MongooseService().loadModels();
   }
 }

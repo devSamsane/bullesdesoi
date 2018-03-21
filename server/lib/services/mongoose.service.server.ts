@@ -2,7 +2,7 @@ import * as mongoose from 'mongoose';
 import * as chalk from 'chalk';
 
 import { properties } from "../../config";
-import { MongoClient, MongoCallback, MongoClientOptions } from 'mongodb';
+import { userSchema } from '../../modules/user/model/schema/user.schema';
 
 // Configuration Promise de mongoose
 require('mongoose').Promise = properties.config.db.promise;
@@ -33,5 +33,20 @@ export class MongooseService {
           reject(error);
         });
     });
+  }
+
+  /**
+   * Connexion aux modèles
+   * @memberof MongooseService
+   */
+  public loadModels() {
+
+    // Initialisation d'une connection à la db
+    const connection: mongoose.Connection = mongoose.createConnection(this.uri);
+
+    // Connexions aux models
+    // Recencement de tous les models à faire ici
+    const User = connection.model('User', userSchema);
+
   }
 }
