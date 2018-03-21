@@ -70,10 +70,18 @@ export interface DBConfigProperties {
 
 export interface OptionsDBConfigProperties {
   ssl: boolean;
-  sslValidate: boolean;
+  sslCA: Buffer;
+  sslCert: Buffer;
+  sslKey: Buffer;
+  sslPass: string;
+  authSource: string;
+  auth: AuthOptionsDBConfigProperties;
   checkServerIdentity: boolean;
-  sslCA: string;
-  privateKey: string;
-  publicKey: string;
-  sslPassphrase: string;
+  autoReconnect: boolean;
+  appname: string;
+}
+
+export interface AuthOptionsDBConfigProperties {
+  user: string;
+  pass: string;
 }
