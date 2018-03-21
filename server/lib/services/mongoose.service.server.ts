@@ -5,6 +5,14 @@ import { properties } from "../../config";
 import { userSchema } from '../../modules/user/model/schema/user.schema';
 import { User } from '../../modules/user/model/interface/user.interface';
 import { UserModel } from '../../modules/user/model/user.model';
+import { sophronisationSchema } from '../../modules/sophronisation/model/schema/sophronisation.schema';
+import { SophronisationModel } from '../../modules/sophronisation/model/sophronisation.model';
+import { SeanceModel } from '../../modules/seance/model/seance.model';
+import { seanceSchema } from '../../modules/seance/model/schema/seance.schema';
+import { RelaxationModel } from '../../modules/relaxation/model/relaxation.model';
+import { relaxationSchema } from '../../modules/relaxation/model/schema/relaxation.schema';
+import { AppointmentModel } from '../../modules/appointment/model/appointment.model';
+import { appointmentSchema } from '../../modules/appointment/model/schema/appointment.schema';
 
 // Configuration Promise de mongoose
 require('mongoose').Promise = properties.config.db.promise;
@@ -49,6 +57,10 @@ export class MongooseService {
     // Connexions aux models
     // Recencement de tous les models à faire ici
     const User: mongoose.Model<UserModel> = connection.model('User', userSchema);
+    const Sophronisation: mongoose.Model<SophronisationModel> = connection.model('Sophronisation', sophronisationSchema);
+    const Seance: mongoose.Model<SeanceModel> = connection.model('Seance', seanceSchema);
+    const Relaxation: mongoose.Model<RelaxationModel> = connection.model('Relaxation', relaxationSchema);
+    const Appointment: mongoose.Model<AppointmentModel> = connection.model('Appointment', appointmentSchema);
 
   }
 }
