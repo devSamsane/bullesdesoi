@@ -45,7 +45,7 @@ export interface HelmetConfigProperties {
 export interface HSTSHelmetConfigProperties {
   expiration: number;
   includeSubdomains: boolean;
-  force: string;
+  force: boolean;
 }
 
 export interface LogConfigProperties {

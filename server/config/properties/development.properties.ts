@@ -11,12 +11,26 @@ export const DEVELOPMENT_PROPERTIES: Properties = {
     livereload: true,
     port: 3000,
     host: '127.0.0.1',
-    domain: 'localhost'
+    domain: 'localhost',
+    secure: {
+      active: false,
+      ssl: false,
+      privateKey: '../sslcerts/key.pem',
+      publicKey: '../sslcerts/cert.pem',
+      caBundle: ''
+    }
   },
   config: {
     db: {
       promise: global.Promise,
       uri: 'http://localhost:27001/bullesdesoi'
+    },
+    helmet: {
+      hsts: {
+        expiration: 15778476000,
+        includeSubdomains: true,
+        force: true
+      }
     }
   }
 }
