@@ -2,7 +2,10 @@
   "name": "bullesdesoi",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start:server": "./node_modules/.bin/nodemon -w ./server --ext \".ts\" --exec \"npm run server\"",
+    "server": "./node_modules/.bin/ts-node server.ts"
+  },
   "private": true,
   "dependencies": {
     "@types/node": "^9.4.7",
@@ -16,6 +19,7 @@
     "helmet": "^3.12.0",
     "lodash": "^4.17.5",
     "method-override": "^2.3.10",
+    "nodemon": "^1.17.2",
     "winston": "^2.4.1"
   },
   "devDependencies": {
