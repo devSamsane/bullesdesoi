@@ -16,7 +16,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "bds",
       "styles": [
-        "styles.scss"
+        "styles.scss",
+        "bds-theme.scss"
         ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
