@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as expressWinston from 'express-winston';
 import * as winston from 'winston';
 
-import { properties } from "../../config";
+import { properties } from '../../config';
 import { Properties } from '../../interfaces/properties.interface';
 
 export class Logger {
@@ -58,7 +58,7 @@ export class Logger {
    */
   public logExpress() {
     if (this.loggerExpress) {
-      return this.loggerExpress
+      return this.loggerExpress;
     }
 
     // Définition des options

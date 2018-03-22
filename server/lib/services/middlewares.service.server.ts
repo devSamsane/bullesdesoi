@@ -72,8 +72,8 @@ export class Middlewares {
   private initHelmetMiddleware(app: express.Application) {
     app.use(helmet.frameguard());
     app.use(helmet.xssFilter());
-    app.use(helmet.noSniff())
-    app.use(helmet.ieNoOpen())
+    app.use(helmet.noSniff());
+    app.use(helmet.ieNoOpen());
     app.use(helmet.hsts({
       maxAge: properties.config.helmet.hsts.expiration,
       includeSubdomains: properties.config.helmet.hsts.includeSubdomains,

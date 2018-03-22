@@ -1,4 +1,4 @@
-import { Properties } from "../../interfaces/properties.interface";
+import { Properties } from '../../interfaces/properties.interface';
 
 export const DEVELOPMENT_PROPERTIES: Properties = {
   app: {
@@ -54,4 +54,4 @@ export const DEVELOPMENT_PROPERTIES: Properties = {
       preflightContinue: false
     }
   }
-}
+};

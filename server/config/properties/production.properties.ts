@@ -1,4 +1,4 @@
-import { Properties } from "../../interfaces/properties.interface";
+import { Properties } from '../../interfaces/properties.interface';
 
 export const PRODUCTION_PROPERTIES: Properties = {
    app: {
@@ -19,4 +19,4 @@ export const PRODUCTION_PROPERTIES: Properties = {
       uri: process.env.MONGODB_URI
     }
   }
-}
+};

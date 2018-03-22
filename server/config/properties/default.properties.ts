@@ -20,4 +20,4 @@ export const DEFAULT_PROPERTIES: Properties = {
     }
   },
   env: process.env.NODE_ENV || 'development'
-}
+};

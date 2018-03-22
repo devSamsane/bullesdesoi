@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 import * as chalk from 'chalk';
 
-import { properties } from "../../config";
+import { properties } from '../../config';
 import { userSchema } from '../../modules/user/model/schema/user.schema';
 import { User } from '../../modules/user/model/interface/user.interface';
 import { UserModel } from '../../modules/user/model/user.model';

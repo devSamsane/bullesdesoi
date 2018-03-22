@@ -62,7 +62,7 @@ export class App {
     ServicesApi.routesApi(router);
 
     // Connexion des api(s) au routeur
-    this.app.use(router)
+    this.app.use(router);
 
     // Activation CORS
     router.options('*', cors(corsOptions));
@@ -71,7 +71,7 @@ export class App {
   /**
    * Exposition des middlewares à l'application
    * @private
-   * @param {express.Application} app 
+   * @param {express.Application} app
    * @memberof App
    */
   private configMiddlewares(app: express.Application) {
