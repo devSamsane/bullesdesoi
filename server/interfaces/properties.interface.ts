@@ -36,6 +36,15 @@ export interface ConfigProperties {
   helmet?: HelmetConfigProperties;
   log?: LogConfigProperties;
   db: DBConfigProperties;
+  cors?: CorsConfigProperties;
+}
+
+export interface CorsConfigProperties {
+  allowedHeaders: string[];
+  credentials: boolean;
+  methods: string;
+  origin: string;
+  preflightContinue: boolean;
 }
 
 export interface HelmetConfigProperties {

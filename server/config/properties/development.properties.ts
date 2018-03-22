@@ -45,6 +45,13 @@ export const DEVELOPMENT_PROPERTIES: Properties = {
         maxsize: 10485760,
         json: true
       }
+    },
+    cors: {
+      allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'X-Access-Token'],
+      credentials: true,
+      methods: 'GET, HEAD, OPTIONS, PUT, PATCH, DELETE',
+      origin: 'http://localhost:4200',
+      preflightContinue: false
     }
   }
 }

@@ -1,8 +1,11 @@
 import * as express from 'express';
+import * as cors from 'cors';
 
 import { Middlewares } from './services/middlewares.service.server';
 import { Logger } from './services/logger.service.server';
 import { MongooseService } from './services/mongoose.service.server';
+import { properties } from '../config';
+import { ServicesApi } from './api/services.api';
 
 
 export class App {
@@ -43,7 +46,26 @@ export class App {
    * @memberof App
    */
   private api() {
+    const router = express.Router();
 
+    // Configuration CORS
+    const corsOptions: cors.CorsOptions = {
+      allowedHeaders: properties.config.cors.allowedHeaders,
+      credentials: properties.config.cors.credentials,
+      methods: properties.config.cors.methods,
+      origin: properties.config.cors.origin,
+      preflightContinue: properties.config.cors.preflightContinue
+    };
+    router.use(cors(corsOptions));
+
+    // Exposition des api(s) de services
+    ServicesApi.routesApi(router);
+
+    // Connexion des api(s) au routeur
+    this.app.use(router)
+
+    // Activation CORS
+    router.options('*', cors(corsOptions));
   }
 
   /**
