@@ -5,9 +5,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './_material/material.module';
+import { SidenavComponent } from './navigation/sidenav/sidenav.component';
+import { NavbarComponent } from './navigation/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    SidenavComponent,
+    NavbarComponent
+    ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

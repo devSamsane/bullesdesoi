@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span>
+    <button mat-icon-button (click)="toggleIcon()">
+      <mat-icon *ngIf="!toggleIconClass">person_outline</mat-icon>
+      <mat-icon *ngIf="toggleIconClass">person</mat-icon>
+    </button>
+  </span>
+</mat-toolbar>
