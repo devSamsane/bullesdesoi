@@ -1,9 +1,14 @@
 <mat-sidenav-container>
 
-  <mat-sidenav></mat-sidenav>
+  <mat-sidenav #sidenav mode="over" fixedInViewport="true"></mat-sidenav>
 
   <mat-sidenav-content>
-    <bds-navbar></bds-navbar>
+    <main>
+        <bds-navbar (isSidenavToggle)="sidenav.toggle()"></bds-navbar>
+    </main>
+    <section>
+      <p>Content sidenav</p>
+    </section>
   </mat-sidenav-content>
   
 </mat-sidenav-container>
