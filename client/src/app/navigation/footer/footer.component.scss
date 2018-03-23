@@ -1,0 +1,17 @@
+@import '../../../bds-theme.scss';
+@import '~@angular/material/theming';
+
+.bds-footer--colors {
+  color: mat-color($mat-grey, 50);
+  background-color: mat-color($bds-primary, 500);
+}
+
+.bds-footer--font {
+  font-family: "Lato", Thin;
+  font-size: 16px !important;
+  font-weight: 100 !important;
+}
+
+.bds-listIcon--color {
+  color: mat-color($mat-grey, 200);
+}

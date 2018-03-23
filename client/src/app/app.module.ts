@@ -7,12 +7,18 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './_material/material.module';
 import { SidenavComponent } from './navigation/sidenav/sidenav.component';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
+import { FooterComponent } from './navigation/footer/footer.component';
+import { SidenavLogoComponent } from './navigation/sidenav/sidenav-logo/sidenav-logo.component';
+import { SidenavMenuComponent } from './navigation/sidenav/sidenav-menu/sidenav-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidenavComponent,
-    NavbarComponent
+    SidenavLogoComponent,
+    SidenavMenuComponent,
+    NavbarComponent,
+    FooterComponent
     ],
   imports: [
     BrowserModule,
