@@ -1,6 +1,10 @@
 @import './bds-theme.scss';
 @import '~@angular/material/theming';
 
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
 }
