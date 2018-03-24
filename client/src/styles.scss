@@ -7,14 +7,15 @@ html, body {
 
 body {
   margin: 0;
+  font-family: 'Lato Light', sans-serif;
 }
 
 .bds-header-title {
-  font-family: "Merienda", cursive;
+  font-family: 'Merienda', cursive;
   color: mat-color($bds-primary, 500);
 }
 
 .bds-title {
-  font-family: "Lato Light", sans-serif;
+  font-family: 'Lato Light', sans-serif;
   font-weight: 400; 
 }
