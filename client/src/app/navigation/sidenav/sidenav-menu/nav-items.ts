@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 export interface NavItem {
   id: string;
@@ -16,8 +16,8 @@ export interface NavCategory {
 }
 
 
-// Initialisation des sections
-const SECTIONS: NavCategory[] = [
+// Définition du menu
+const MENU: NavCategory[] = [
   {
     id: 'applications',
     name: 'Applications',
@@ -84,12 +84,25 @@ const SECTIONS: NavCategory[] = [
       { id: 'seances', name: 'Description des seances', type: 'link', route: '/prestations' },
       { id: 'tarifs', name: 'Tarification', type: 'link', route: '/tarification'}
     ]
-  },
+  }
 ];
+
+const NAV_CATEGORY = MENU.reduce((result, category) => result.concat(category.items), []);
 
 @Injectable()
 export class NavigationItems {
-  
+
   // Récupération des catégories
-  getCategories()
+  getCategories(): NavCategory[] {
+    // TODO: Supprimer console
+    console.log(MENU);
+    return MENU;
+  }
+
+  // Récupération des items
+  getItems(): NavItem[] {
+    // TODO: Supprimer console
+    console.log(NAV_CATEGORY);
+    return NAV_CATEGORY;
+  }
 }

@@ -1,13 +1,13 @@
-<div>
-  <div>
-    <nav>
-      <button>
-        <mat-icon>keyboard_arrow_done</mat-icon>
-        <mat-icon>keyboard_arrow_up</mat-icon>
+<div class="bds-viewer-nav">
+  <div class="bds-categories-nav">
+    <nav *ngFor="let category of navItems.getCategories()">
+      <button (click)="toggleExpand(category.id)"> {{ category.name }}
+        <mat-icon *ngIf="!getExpanded(category.id)">keyboard_arrow_down</mat-icon>
+        <mat-icon *ngIf="getExpanded(category.id)">keyboard_arrow_up</mat-icon>
       </button>
-      <ul>
-        <li>
-          <a></a>
+      <ul [@bodyExpansion]="getExpandedState(category.id)" id="panel-{{ category.id }}">
+        <li *ngFor="let item of category.items">
+          <a routerLinkActive="bds-nav-item-selected" (click)="sidenavClose()"> {{ item.name }}</a>
         </li>
       </ul>
     </nav>

@@ -1,13 +1,16 @@
 <mat-sidenav-container>
 
-  <mat-sidenav #sidenav mode="over" fixedInViewport="true"></mat-sidenav>
+  <mat-sidenav #sidenav mode="over" fixedInViewport="true">
+    <bds-sidenav-logo></bds-sidenav-logo>
+    <bds-sidenav-menu (closeSidenav)="sidenav.close()"></bds-sidenav-menu>
+  </mat-sidenav>
 
   <mat-sidenav-content>
     <main>
         <bds-navbar (isSidenavToggle)="sidenav.toggle()"></bds-navbar>
     </main>
-    <section fxlayout="column" fxLayoutAlign="start stretch">
-      <p>Content sidenav</p>
+    <section #router fxlayout="column" fxLayoutAlign="start stretch">
+      <router-outlet></router-outlet>
     </section>
     <footer>
       <bds-footer></bds-footer>
