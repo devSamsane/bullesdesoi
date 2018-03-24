@@ -1,8 +1,8 @@
 <mat-sidenav-container>
 
-  <mat-sidenav #sidenav mode="over" fixedInViewport="true">
+  <mat-sidenav #sidenav mode="over" fixedInViewport="true" role="navigation">
     <bds-sidenav-logo></bds-sidenav-logo>
-    <bds-sidenav-menu (closeSidenav)="sidenav.close()"></bds-sidenav-menu>
+    <bds-sidenav-menu (closeSidenav)="sidenav.close()" [params]="params"></bds-sidenav-menu>
   </mat-sidenav>
 
   <mat-sidenav-content>

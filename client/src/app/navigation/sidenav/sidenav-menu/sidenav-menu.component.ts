@@ -1,7 +1,13 @@
 import { Component, Output, EventEmitter, OnInit, Input, OnDestroy } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { Router, Params, Event } from '@angular/router';
+
+// tslint:disable-next-line:import-blacklist
+import { Observable, Subject } from 'rxjs';
+
 
 import { NavigationItems, NavCategory } from './nav-items';
+import { startWith, switchMap, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'bds-sidenav-menu',
@@ -20,15 +26,19 @@ import { NavigationItems, NavCategory } from './nav-items';
 })
 export class SidenavMenuComponent implements OnInit, OnDestroy {
 
+  @Input() params: Observable<Params>;
   @Output() closeSidenav = new EventEmitter<void>();
+  expansions = {};
+  private onDestroy = new Subject<void>();
 
-  // Déclaration expanse menu
-  expansions: any = {};
-
-  constructor(public navItems: NavigationItems) {}
+  constructor(public navItems: NavigationItems, private router: Router) {}
 
   ngOnInit() {
-
+    this.router.events.pipe(
+      startWith(null),
+      switchMap(() => this.params),
+      takeUntil(this.onDestroy)
+    ).subscribe(p => this.setExpansions(p));
   }
 
   // Close Sidenav
@@ -37,15 +47,21 @@ export class SidenavMenuComponent implements OnInit, OnDestroy {
   }
 
   // Configuration expansion
-  setExpansions() {
+  setExpansions(params: Params) {
     const categories = this.navItems.getCategories();
 
     for (const category of categories) {
       if (this.expansions[category.id] === true) {
         continue;
       }
-
-      this.expansions[category.id] = true;
+      let match = false;
+      for (const item of category.items) {
+        if (this.router.url.indexOf(item.route) > 1) {
+          match = true;
+          break;
+        }
+      }
+      this.expansions[category.id] = match;
     }
   }
 
@@ -65,7 +81,8 @@ export class SidenavMenuComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-
+    this.onDestroy.next();
+    this.onDestroy.complete();
   }
 }
 
