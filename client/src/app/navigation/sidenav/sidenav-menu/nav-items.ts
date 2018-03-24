@@ -94,15 +94,11 @@ export class NavigationItems {
 
   // Récupération des catégories
   getCategories(): NavCategory[] {
-    // TODO: Supprimer console
-    console.log(MENU);
     return MENU;
   }
 
   // Récupération des items
   getItems(): NavItem[] {
-    // TODO: Supprimer console
-    console.log(NAV_CATEGORY);
     return NAV_CATEGORY;
   }
 }
