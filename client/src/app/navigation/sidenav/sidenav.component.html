@@ -1,7 +1,7 @@
 <mat-sidenav-container>
 
   <mat-sidenav #sidenav mode="over" fixedInViewport="true" role="navigation">
-    <bds-sidenav-logo></bds-sidenav-logo>
+    <bds-sidenav-logo routerLink="/" (click)="sidenav.close()"></bds-sidenav-logo>
     <bds-sidenav-menu (closeSidenav)="sidenav.close()" [params]="params"></bds-sidenav-menu>
   </mat-sidenav>
 

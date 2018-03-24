@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidenav-logo.component.scss']
 })
 export class SidenavLogoComponent {
-
+  logo = '../../../../assets/logos/bullesdesoi-logo-500.png';
+  title = 'Bulles de soi';
 }
