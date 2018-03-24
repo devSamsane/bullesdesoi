@@ -15,12 +15,16 @@ import { SidenavMenuComponent } from './navigation/sidenav/sidenav-menu/sidenav-
 import { SigninComponent } from './authentication/signin/signin.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { AppointmentComponent } from './appointment/appointment.component';
+import { HomeComponent } from './home/home.component';
+
 
 
 import { NavigationItems } from './navigation/sidenav/sidenav-menu/nav-items';
 
 import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/shared.module';
+import { HomeModule } from './home/home.module';
+
 import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './shared/map/map.component';
 
@@ -45,6 +49,7 @@ import { MapComponent } from './shared/map/map.component';
     MaterialModule,
     FlexLayoutModule,
     PagesModule,
+    HomeModule,
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyBEidIrV8EFlQRyt_ra6qcCoBlJTev1mtE' })
   ],
   providers: [NavigationItems],
