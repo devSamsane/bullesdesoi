@@ -1,17 +1,33 @@
 @import '../../../bds-theme.scss';
 @import '~@angular/material/theming';
 
-.bds-footer--colors {
-  color: mat-color($mat-grey, 50);
+.bds-footer-container {
+  flex-grow: 1;
   background-color: mat-color($bds-primary, 400);
 }
 
-.bds-footer--font {
-  font-family: "Lato Light", sans-serif;
-  font-size: 16px;
-  font-weight: 100;
+.bds-footer-logo {
+  max-height: 220px;
 }
 
-.bds-listIcon--color {
-  color: mat-color($mat-grey, 200);
+.bds-footer-containers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bds-footer-font {
+  color: mat-color($mat-grey, 100);
+  font-family: 'Lato Thin', sans-serif;
+  font-size: 15px !important;
+  font-weight: 100 !important;
+}
+
+mat-icon {
+  color: mat-color($mat-grey, 100);
+}
+
+bds-map-container {
+  display: flex;
+  flex-grow: 1;
 }

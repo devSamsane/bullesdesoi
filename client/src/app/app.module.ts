@@ -20,6 +20,9 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { NavigationItems } from './navigation/sidenav/sidenav-menu/nav-items';
 
 import { PagesModule } from './pages/pages.module';
+import { SharedModule } from './shared/shared.module';
+import { AgmCoreModule } from '@agm/core';
+import { MapComponent } from './shared/map/map.component';
 
 
 @NgModule({
@@ -32,17 +35,19 @@ import { PagesModule } from './pages/pages.module';
     FooterComponent,
     SigninComponent,
     SignupComponent,
-    AppointmentComponent
-    ],
+    AppointmentComponent,
+    MapComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,
     FlexLayoutModule,
-    PagesModule
+    PagesModule,
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyBEidIrV8EFlQRyt_ra6qcCoBlJTev1mtE' })
   ],
   providers: [NavigationItems],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
