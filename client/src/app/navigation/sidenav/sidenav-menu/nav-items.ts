@@ -61,9 +61,8 @@ const MENU: NavCategory[] = [
     name: 'Votre sophrologue',
     type: 'toogle',
     items: [
-      { id: 'appointment', name: 'Prendre rendez-vous', type: 'link', route: '/rdv'},
-      { id: 'signup', name: 'S\'inscrire', type: 'link', route: '/signup' },
-      { id: 'signin', name: 'Se connecter', type: 'link', route: '/signin' }
+      { id: 'aboutme', name: 'A mon propos', type: 'link', route: '/a_mon_propos'},
+      { id: 'deontologie', name: 'Code de déontologie', type: 'link', route: '/deontologie'}
     ]
   },
   {
