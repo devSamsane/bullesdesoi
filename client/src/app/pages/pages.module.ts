@@ -6,7 +6,6 @@ import { AdolescenceComponent } from './applications/adolescence/adolescence.com
 import { AdulteComponent } from './applications/adulte/adulte.component';
 import { SeniorComponent } from './applications/senior/senior.component';
 import { DeontologieComponent } from './deontologie/deontologie.component';
-import { HomeComponent } from '../home/home.component';
 import { DescriptionSeancesComponent } from './description-seances/description-seances.component';
 import { TarificationComponent } from './tarification/tarification.component';
 import { PerinataliteComponent } from './applications/perinatalite/perinatalite.component';
@@ -20,7 +19,6 @@ import { PerinataliteComponent } from './applications/perinatalite/perinatalite.
     SeniorComponent,
     PerinataliteComponent,
     DeontologieComponent,
-    HomeComponent,
     DescriptionSeancesComponent,
     TarificationComponent
   ]
