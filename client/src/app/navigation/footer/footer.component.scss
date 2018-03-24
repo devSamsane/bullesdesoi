@@ -3,13 +3,13 @@
 
 .bds-footer--colors {
   color: mat-color($mat-grey, 50);
-  background-color: mat-color($bds-primary, 500);
+  background-color: mat-color($bds-primary, 400);
 }
 
 .bds-footer--font {
-  font-family: "Lato", Thin;
-  font-size: 16px !important;
-  font-weight: 100 !important;
+  font-family: "Lato Light", sans-serif;
+  font-size: 16px;
+  font-weight: 100;
 }
 
 .bds-listIcon--color {

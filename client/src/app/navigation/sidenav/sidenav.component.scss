@@ -15,6 +15,12 @@ bds-sidenav-logo:focus {
   outline: none;
 }
 
+bds-footer {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
 .bds-main-wrap {
   min-height: 100vh;
 }

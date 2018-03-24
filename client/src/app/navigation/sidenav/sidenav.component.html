@@ -6,15 +6,15 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <main>
-        <bds-navbar (isSidenavToggle)="sidenav.toggle()"></bds-navbar>
+    <main fxLayout="column" fxLayoutAlign="start stretch" class="bds-main-wrap">
+      <bds-navbar (isSidenavToggle)="sidenav.toggle()"></bds-navbar>
+      <section #router fxFlex="1">
+        <router-outlet></router-outlet>
+      </section>
+      <footer>
+        <bds-footer></bds-footer>
+      </footer>
     </main>
-    <section #router fxlayout="column" fxLayoutAlign="start stretch">
-      <router-outlet></router-outlet>
-    </section>
-    <footer>
-      <bds-footer></bds-footer>
-    </footer>
   </mat-sidenav-content>
   
 </mat-sidenav-container>
