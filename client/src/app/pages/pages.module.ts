@@ -9,6 +9,7 @@ import { DeontologieComponent } from './deontologie/deontologie.component';
 import { HomeComponent } from '../home/home.component';
 import { DescriptionSeancesComponent } from './description-seances/description-seances.component';
 import { TarificationComponent } from './tarification/tarification.component';
+import { PerinataliteComponent } from './applications/perinatalite/perinatalite.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { TarificationComponent } from './tarification/tarification.component';
     AdolescenceComponent,
     AdulteComponent,
     SeniorComponent,
+    PerinataliteComponent,
     DeontologieComponent,
     HomeComponent,
     DescriptionSeancesComponent,
