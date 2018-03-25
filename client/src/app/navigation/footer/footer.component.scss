@@ -16,9 +16,14 @@
   justify-content: center;
 }
 
+.bds-footer-containers--lt-md {
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
 .bds-footer-font {
   color: mat-color($mat-grey, 100);
-  font-family: 'Lato Thin', sans-serif;
   font-size: 15px !important;
   font-weight: 100 !important;
 }
