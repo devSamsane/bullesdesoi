@@ -1,1 +1,41 @@
-<p>Home Contact</p>
+<div fxLayout="column" fxLayoutAlign="space-between stretch" class="bds-contact-form-container">
+  <h3 fxFlex fxLayoutAlign="center center" ngClass.lt-md="bds-contact-header--lt-md">Contactez moi</h3>
+  <form fxLayout="column" fxLayoutAlign="start stretch" [formGroup]="contactForm" (ngSubmit)="submitFormData()">
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between center" fxLayoutAlign.lt-md="center stretch">
+      <mat-form-field fxFlex="40">
+        <input matInput type="text" placeholder="Nom" formControlName="lastname" required>
+      </mat-form-field>
+      <mat-form-field fxFlex="40">
+        <input matInput type="text" placeholder="Prénom" formControlName="firstname" required>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between center" fxLayoutAlign.lt-md="center stretch">
+      <mat-form-field fxFlex="40">
+        <input matInput type="email" placeholder="Email" formControlName="email" required>
+      </mat-form-field>
+      <mat-form-field fxFlex="40">
+        <input matInput type="text" placeholder="Téléphone" formControlName="phone">
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <mat-form-field fxFlex>
+        <textarea
+          matInput
+          placeholder="Commentaires"
+          matTextareaAutosize
+          matAutosizeMinRows="2"
+          matAutosizeMaxRows="8"
+          required
+        ></textarea>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit"
+        [disabled]="contactForm.invalid"
+      >Envoyez</button>
+    </div>
+  </form>
+</div>

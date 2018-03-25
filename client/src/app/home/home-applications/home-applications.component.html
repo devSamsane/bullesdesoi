@@ -1,1 +1,54 @@
-<p>Home Applications</p>
+<div fxLayout="column" fxLayoutAlign="space-around stretch" class="bds-applications-container">
+    <h3>Spécialisations</h3>
+    <p>La sophrologie peut s'adresser à tous, retrouvez plus d'informations sur les pages détaillées</p>
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between stretch" fxLayoutAlign.lt-md="center center">
+      <mat-card class="bds-applications-card" [ngClass.lt-md]="{'bds-applications-card' : false, 'bds-applications-card--lt-md' : true }">
+        <mat-card-header>
+          <mat-card-title>Périnatalité</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="../../../assets/pages/photo-card-perinatalite.jpeg" alt="périnatalité card">
+        <mat-card-content class="bds-card-spacer">
+          <p>Vous accompagnez à tous les stades autour de la naissance.</p>
+        </mat-card-content>
+        <mat-card-actions fxLayout="row" fxLayoutAlign="end end">
+          <button mat-button color="primary" routerLink="applications/perinatalite">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+
+      <mat-card class="bds-applications-card" [ngClass.lt-md]="{'bds-applications-card' : false, 'bds-applications-card--lt-md' : true }">
+        <mat-card-header>
+          <mat-card-title>Enfance</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="../../../assets/pages/photo-card-enfance.jpeg" alt="enfance card">
+        <mat-card-content class="bds-card-spacer">
+          <p>Une thérapie adaptable et accessible pour les problématiques de l'enfant.</p>
+        </mat-card-content>
+        <mat-card-actions fxLayout="row" fxLayoutAlign="end end">
+          <button mat-button color="primary" routerLink="applications/enfance">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+
+      <mat-card class="bds-applications-card" [ngClass.lt-md]="{'bds-applications-card' : false, 'bds-applications-card--lt-md' : true }">
+        <mat-card-header>
+          <mat-card-title>Adolescence</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="../../../assets/pages/photo-card-adolescence.jpeg" alt="adolescence card">
+        <mat-card-content class="bds-card-spacer">
+          <p>La sophrologie comme précieuse alliée sur la période de tous les changements.</p>
+        </mat-card-content>
+        <mat-card-actions fxLayout="row" fxLayoutAlign="end end">
+          <button mat-button color="primary" routerLink="applications/adolescence">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" class="bds-applications-button">
+      <button mat-raised-button color="accent" routerLink="/applications">En savoir plus</button>
+    </div>
+
+</div>

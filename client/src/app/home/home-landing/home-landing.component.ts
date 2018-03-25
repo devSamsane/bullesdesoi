@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './home-landing.component.html',
   styleUrls: ['./home-landing.component.scss']
 })
-export class HomeLandingComponent { }
+export class HomeLandingComponent {
+  title = 'Bulles de Soi';
+}

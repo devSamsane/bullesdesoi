@@ -1,1 +1,13 @@
-<p>Home Landing</p>
+<div fxLayout="column" class="bds-landing-container" fxLayoutAlign.lt-md="center center">
+  <div class="bds-landing-texte-container" [ngClass.lt-md]="{'bds-landing-texte-container' : false, 'bds-landing-texte-container--lt-md' : true}">
+    <div class="bds-landing-title">
+      <h1>{{ title }}</h1>
+    </div>
+    <div class="bds-landing-title">
+      <h4>Etre acteur de son mieux être en permettant le développement de l'autonomie</h4>
+    </div>
+    <div>
+      <button mat-raised-button color="accent" routerLink="/rdv">Prendre rendez-vous</button>
+    </div>
+  </div>
+</div>

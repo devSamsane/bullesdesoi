@@ -1,0 +1,89 @@
+@import '../../../bds-theme.scss';
+@import '~@angular/material/theming';
+
+.bds-home-description-container {
+  background-color: white;
+  padding-top: 100px;
+  flex-wrap: wrap;
+}
+
+.bds-home-description-row {
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-bottom: 50px;
+  align-items: center;
+}
+
+.bds-circular-photo {
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  border-bottom-left-radius: 50% 50%;
+  height: 300px;
+  width: 300px;
+}
+
+.bds-circular-photo--lt-md {
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  border-bottom-left-radius: 50% 50%;
+  height: 150px;
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.bds-home-description-title > h3 {
+  font-family: 'LatoLatinWebHairline', sans-serif;
+  font-size: 48px;
+  font-weight: 100;
+  margin: 0;
+}
+
+.bds-home-description-paragraphe {
+  text-align: justify;
+}
+
+.bds-home-description-paragraphe > p > a {
+  text-decoration: none;
+  color: mat-color($bds-primary, 500);
+  font-family: 'LatoLatinWebMedium';
+}
+
+.bds-home-banner-container {
+  margin-top: 100px;
+  background-image: url('../../../assets/pages/photo-banner-home.png');
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.bds-home-banner-texte {
+  position: absolute;
+  display: block;
+
+  & > blockquote > p {
+    font-family: 'Merienda', cursive;
+    font-size: 24px;
+    color: mat-color($mat-grey, 100);
+  }
+}
+
+blockquote {
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color:mat-color($mat-grey, 100);
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
