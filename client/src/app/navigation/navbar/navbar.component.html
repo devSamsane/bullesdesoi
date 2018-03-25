@@ -4,11 +4,12 @@
   </button>
 
   <span class="bds-spacer"></span>
-    <button mat-icon-button (click)="toggleIcon()">
-      <mat-icon *ngIf="!toggleIconClass">person_outline</mat-icon>
-      <mat-icon *ngIf="toggleIconClass">person</mat-icon>
-    </button>
+  <span>{{isLoggedIn$ | async}}</span>
     <button mat-icon-button>
+      <mat-icon *ngIf="isLoggedOut$ | async">person_outline</mat-icon>
+      <mat-icon *ngIf="isLoggedIn$ | async" color="accent">person</mat-icon>
+    </button>
+    <button mat-icon-button routerLink="/rdv">
       <mat-icon>event</mat-icon>
     </button>
 </mat-toolbar>

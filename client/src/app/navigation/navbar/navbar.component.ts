@@ -4,10 +4,12 @@ import { DOCUMENT } from '@angular/platform-browser';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 // tslint:disable-next-line:import-blacklist
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators/takeUntil';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import { debounceTime } from 'rxjs/operators';
+import { AuthService } from '../../authentication/auth.service';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'bds-navbar',
@@ -47,7 +49,6 @@ import { debounceTime } from 'rxjs/operators';
 export class NavbarComponent implements OnInit, OnDestroy {
   @Input() container: string;
   @Output() isSidenavToggle = new EventEmitter<void>();
-  toggleIconClass: boolean;
   public navbarState = 'cleared';
   private destroyed = new Subject();
   private scrollContainer: any;
@@ -56,10 +57,15 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private scrollOffset: any = 0;
   private _rootUrl: string;
 
+  isLoggedIn$: Observable<boolean>;
+  isLoggedOut$: Observable<boolean>;
+  user$: Observable<User>;
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private authService: AuthService
   ) {
     this.router.events.pipe(takeUntil(this.destroyed)).subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -71,7 +77,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.toggleIconClass = false;
+    this.isLoggedIn$ = this.authService.isLoggedIn$;
+    this.isLoggedOut$ = this.authService.isLoggedOut$;
+    this.user$ = this.authService.user$;
 
     Promise.resolve().then(() => {
       this.scrollContainer = this.container
@@ -80,10 +88,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
       fromEvent(this.scrollContainer, 'scroll')
         .pipe(takeUntil(this.destroyed), debounceTime(10))
         .subscribe(event => {
-          console.log('pageYOffset: ', this.scrollContainer.window);
           this.scrollOffset = this.scrollContainer.window.pageYOffset;
           if (this._rootUrl === '/') {
-            console.log(this.scrollOffset);
             this.getScrollOffset(this.scrollOffset);
           }
         });
@@ -121,10 +127,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     } else {
       this.navbarState = 'cleared';
     }
-  }
-
-  toggleIcon() {
-    this.toggleIconClass = !this.toggleIconClass;
   }
 
   toggleSidenav() {
