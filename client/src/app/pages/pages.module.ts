@@ -9,6 +9,7 @@ import { DeontologieComponent } from './deontologie/deontologie.component';
 import { DescriptionSeancesComponent } from './description-seances/description-seances.component';
 import { TarificationComponent } from './tarification/tarification.component';
 import { PerinataliteComponent } from './applications/perinatalite/perinatalite.component';
+import { ApplicationsComponent } from './applications/applications.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PerinataliteComponent } from './applications/perinatalite/perinatalite.
     PerinataliteComponent,
     DeontologieComponent,
     DescriptionSeancesComponent,
-    TarificationComponent
+    TarificationComponent,
+    ApplicationsComponent
   ]
 })
 export class PagesModule {}

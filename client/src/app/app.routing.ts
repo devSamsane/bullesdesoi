@@ -14,10 +14,12 @@ import { TarificationComponent } from './pages/tarification/tarification.compone
 import { AppointmentComponent } from './appointment/appointment.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { SigninComponent } from './authentication/signin/signin.component';
+import { ApplicationsComponent } from './pages/applications/applications.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'applications', component: ApplicationsComponent },
   { path: 'applications/perinatalite', component: PerinataliteComponent },
   { path: 'applications/enfance', component: EnfanceComponent },
   { path: 'applications/adolescence', component: AdolescenceComponent },
