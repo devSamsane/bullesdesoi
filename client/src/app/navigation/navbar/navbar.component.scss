@@ -8,3 +8,8 @@
 button {
   color: mat-color($mat-grey, 100);
 }
+
+mat-toolbar.mat-toolbar {
+  z-index: 5;
+  position: fixed;
+}
