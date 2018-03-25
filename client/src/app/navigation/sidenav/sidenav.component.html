@@ -8,7 +8,7 @@
   <mat-sidenav-content>
     <main fxLayout="column" fxLayoutAlign="start stretch" class="bds-main-wrap">
       <bds-navbar (isSidenavToggle)="sidenav.toggle()"></bds-navbar>
-      <section #router fxFlex="1">
+      <section #router fxFlex="1" [ngClass.lt-sm]="{'bds-margin--lt-sm': this.url !== '/'}" [ngClass.gt-xs]="{'bds-margin--gt-xs': this.url !== '/'}">
         <router-outlet></router-outlet>
       </section>
       <footer>
