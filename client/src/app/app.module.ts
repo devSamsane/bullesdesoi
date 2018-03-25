@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -16,14 +17,15 @@ import { SigninComponent } from './authentication/signin/signin.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { HomeComponent } from './home/home.component';
-
-
+import { HomeLandingComponent } from './home/home-landing/home-landing.component';
+import { HomeDescriptionComponent } from './home/home-description/home-description.component';
+import { HomeApplicationsComponent } from './home/home-applications/home-applications.component';
+import { HomeContactComponent } from './home/home-contact/home-contact.component';
 
 import { NavigationItems } from './navigation/sidenav/sidenav-menu/nav-items';
 
 import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/shared.module';
-import { HomeModule } from './home/home.module';
 
 import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './shared/map/map.component';
@@ -40,16 +42,22 @@ import { MapComponent } from './shared/map/map.component';
     SigninComponent,
     SignupComponent,
     AppointmentComponent,
-    MapComponent
+    MapComponent,
+    HomeComponent,
+    HomeLandingComponent,
+    HomeDescriptionComponent,
+    HomeApplicationsComponent,
+    HomeContactComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     MaterialModule,
     FlexLayoutModule,
     PagesModule,
-    HomeModule,
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyBEidIrV8EFlQRyt_ra6qcCoBlJTev1mtE' })
   ],
   providers: [NavigationItems],
