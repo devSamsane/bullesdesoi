@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app.routing';
@@ -29,6 +31,7 @@ import { SharedModule } from './shared/shared.module';
 
 import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './shared/map/map.component';
+import { RecaptchaDirective } from './shared/recaptcha/recaptcha.directive';
 
 
 @NgModule({
@@ -47,11 +50,14 @@ import { MapComponent } from './shared/map/map.component';
     HomeLandingComponent,
     HomeDescriptionComponent,
     HomeApplicationsComponent,
-    HomeContactComponent
+    HomeContactComponent,
+    RecaptchaDirective
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
