@@ -8,7 +8,7 @@ $bds-accent: mat-palette($mat-lime, A200, A100, A400);
 $bds-warn: mat-palette($mat-pink);
 
 // Définition de la typographie
-$bds-typography: mat-typography-config($font-family: 'Lato Light, sans serif');
+$bds-typography: mat-typography-config($font-family: 'LatoLatinWebLight, sans serif');
 
 // Déclaration du theme
 $theme: mat-light-theme($bds-primary, $bds-accent, $bds-warn);
