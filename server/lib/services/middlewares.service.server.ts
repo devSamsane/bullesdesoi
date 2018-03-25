@@ -49,7 +49,7 @@ export class Middlewares {
     // Middleware: COMPRESSION
     app.use(compression({
       filter: (req: Request, res: Response) => {
-        return (/json|text|javascript|css|font|svg/).test(res.getHeader('Content-Type').toString());
+        return (/json|text|javascript|css|font|svg/).test(res.getHeader('Content-Type'));
       },
       level: 9
     }));

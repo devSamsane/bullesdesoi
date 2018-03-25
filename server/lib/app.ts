@@ -6,6 +6,7 @@ import { Logger } from './services/logger.service.server';
 import { MongooseService } from './services/mongoose.service.server';
 import { properties } from '../config';
 import { ServicesApi } from './api/services.api';
+import { UserApi } from './api/user.api';
 
 
 export class App {
@@ -60,6 +61,9 @@ export class App {
 
     // Exposition des api(s) de services
     ServicesApi.routesApi(router);
+
+    // Expositioin des api(s) du user
+    UserApi.exposeApi(router);
 
     // Connexion des api(s) au routeur
     this.app.use(router);
