@@ -25,6 +25,7 @@ import { HomeApplicationsComponent } from './home/home-applications/home-applica
 import { HomeContactComponent } from './home/home-contact/home-contact.component';
 
 import { NavigationItems } from './navigation/sidenav/sidenav-menu/nav-items';
+import { AuthService } from './authentication/auth.service';
 
 import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/shared.module';
@@ -32,6 +33,7 @@ import { SharedModule } from './shared/shared.module';
 import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './shared/map/map.component';
 import { RecaptchaDirective } from './shared/recaptcha/recaptcha.directive';
+import { UIService } from './shared/ui/ui.service';
 
 
 @NgModule({
@@ -66,7 +68,7 @@ import { RecaptchaDirective } from './shared/recaptcha/recaptcha.directive';
     PagesModule,
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyBEidIrV8EFlQRyt_ra6qcCoBlJTev1mtE' })
   ],
-  providers: [NavigationItems],
+  providers: [NavigationItems, AuthService, UIService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
