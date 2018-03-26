@@ -15,12 +15,13 @@ import { User } from '../models/user';
 @Injectable()
 export class AuthService {
   private subject = new BehaviorSubject<User>(undefined);
+  private _authenticated = false;
 
   // Définition de l'observable user
   // Broadcast du user uniquement si il est définit (!!user)
   user$: Observable<User> = this.subject.asObservable().filter(user => !!user);
-  isLoggedIn$: Observable<boolean> = this.user$.map(user => !!user.id);
-  isLoggedOut$: Observable<boolean> = this.isLoggedIn$.map(isLoggedIn => !isLoggedIn);
+  // isLoggedIn$: Observable<boolean> = this.user$.map(user => !!user.id);
+  // isLoggedOut$: Observable<boolean> = this.isLoggedIn$.map(isLoggedIn => !isLoggedIn);
 
   private readonly url = 'https://localhost:3000';
   httpOptions = {
@@ -38,14 +39,43 @@ export class AuthService {
       .do(res => this.setSession(res))
       .shareReplay()
       // tslint:disable-next-line:no-shadowed-variable
-      .do(res => this.subject.next(res));
+      .do(user => {
+        this.subject.next(user);
+        this._authenticated = true;
+      });
   }
 
   private setSession(authResult) {
     const expiresAt = moment().add(authResult.expiresIn, 'second');
 
-    localStorage.setItem('id-token', authResult.token);
+    localStorage.setItem('id_token', authResult.token);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+  }
+
+  public authenticate(email: string, password: string): Observable<User> {
+    return this.http
+      .post<User>(`${this.url}/api/auth/signin`, { email: email, password: password }, this.httpOptions)
+      .shareReplay()
+      .do(res => this.setSession(res))
+      .do(user => {
+        this.subject.next(user);
+        this._authenticated = true;
+      });
+  }
+
+  public authenticated(): Observable<boolean> {
+    return Observable.of(this._authenticated);
+  }
+
+  public authenticatedUser(): Observable<User> {
+    return this.user$;
+  }
+
+  public signout(): Observable<boolean> {
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('expires_at');
+    this._authenticated = false;
+    return Observable.of(true);
   }
 
 
