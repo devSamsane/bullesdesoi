@@ -31,18 +31,6 @@ export class UserApi {
 
     const sessionToken: string = await SecurityHelper.createSessionToken(user.id.toString());
 
-    const csrfToken = await SecurityHelper.createCsrfToken(sessionToken);
-
-    // // Set token local storage
-    // const token = localStorage.setItem('token', sessionToken);
-
-    // // Création des cookies
-    // res.cookie('sessionId', sessionToken, { httpOnly: true, maxAge: 900000, secure: true });
-    // res.cookie('csrf-token', csrfToken, {
-    //   httpOnly: true,
-    //   maxAge: 900000,
-    //   secure: true
-    // });
 
     // Renvoi de la réponse au client
     res.status(200).json({
