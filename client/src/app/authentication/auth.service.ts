@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-
+import * as fs from 'fs';
 import * as moment from 'moment';
+import * as jwt from 'jsonwebtoken';
 
 // tslint:disable-next-line:import-blacklist
 import { Observable, BehaviorSubject } from 'rxjs';
@@ -32,11 +33,11 @@ export class AuthService {
 
   constructor(protected http: HttpClient) { }
 
-  signup(user: User): Observable<{} | User> {
+  public signup(user: User): Observable<{} | User> {
     const body = JSON.stringify(user);
     return this.http
       .post<User>(`${this.url}/api/auth/signup`, body, this.httpOptions)
-      .do(res => this.setSession(res))
+      .do(res => this.setToken(res))
       .shareReplay()
       // tslint:disable-next-line:no-shadowed-variable
       .do(user => {
@@ -45,18 +46,15 @@ export class AuthService {
       });
   }
 
-  private setSession(authResult) {
-    const expiresAt = moment().add(authResult.expiresIn, 'second');
-
-    localStorage.setItem('id_token', authResult.token);
-    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+  private setToken(authResult) {
+    localStorage.setItem('bds-token', authResult.token);
   }
 
   public authenticate(email: string, password: string): Observable<User> {
     return this.http
       .post<User>(`${this.url}/api/auth/signin`, { email: email, password: password }, this.httpOptions)
       .shareReplay()
-      .do(res => this.setSession(res))
+      .do(res => this.setToken(res))
       .do(user => {
         this.subject.next(user);
         this._authenticated = true;
@@ -64,6 +62,11 @@ export class AuthService {
   }
 
   public authenticated(): Observable<boolean> {
+    if (moment().isBefore(this.getExpiration())) {
+      this._authenticated = true;
+    } else {
+      this._authenticated = false;
+    }
     return Observable.of(this._authenticated);
   }
 
@@ -72,11 +75,16 @@ export class AuthService {
   }
 
   public signout(): Observable<boolean> {
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
+    localStorage.removeItem('bds-token');
     this._authenticated = false;
     return Observable.of(true);
   }
 
+  private getExpiration(): moment.Moment {
+    const token: any = localStorage.getItem('bds-token');
+    const publicKey = fs.readFileSync('../../assets/keys/cert.pem');
+    const payload: any = jwt.verify(token, publicKey);
+    return moment(payload.expiresIn);
+  }
 
  }
