@@ -15,6 +15,9 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { SigninComponent } from './authentication/signin/signin.component';
 import { ApplicationsComponent } from './pages/applications/applications.component';
+import { UsersAccountComponent } from './users/users-account/users-account.component';
+
+import { AuthenticationGuard } from './authentication/authentication.guard';
 
 
 const routes: Routes = [
@@ -32,6 +35,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'rdv', component: AppointmentComponent },
+  { path: 'moncompte', component: UsersAccountComponent, canActivate: [AuthenticationGuard] }
 ];
 
 @NgModule({
