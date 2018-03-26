@@ -4,10 +4,9 @@
   </button>
 
   <span class="bds-spacer"></span>
-  <span>{{isLoggedIn$ | async}}</span>
     <button mat-icon-button>
-      <mat-icon *ngIf="isLoggedOut$ | async">person_outline</mat-icon>
-      <mat-icon *ngIf="isLoggedIn$ | async" color="accent">person</mat-icon>
+      <!-- <mat-icon *ngIf="isLoggedOut$ | async">person_outline</mat-icon> -->
+      <mat-icon color="accent">person</mat-icon>
     </button>
     <button mat-icon-button routerLink="/rdv">
       <mat-icon>event</mat-icon>

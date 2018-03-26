@@ -77,8 +77,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.isLoggedIn$ = this.authService.isLoggedIn$;
-    this.isLoggedOut$ = this.authService.isLoggedOut$;
     this.user$ = this.authService.user$;
 
     Promise.resolve().then(() => {
