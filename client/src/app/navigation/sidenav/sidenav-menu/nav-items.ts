@@ -72,7 +72,8 @@ const MENU: NavCategory[] = [
     items: [
       { id: 'appointment', name: 'Prendre rendez-vous', type: 'link', route: '/rdv'},
       { id: 'signup', name: 'S\'inscrire', type: 'link', route: '/signup' },
-      { id: 'signin', name: 'Se connecter', type: 'link', route: '/signin' }
+      { id: 'signin', name: 'Se connecter', type: 'link', route: '/signin' },
+      { id: 'moncompte', name: 'Mon compte', type: 'link', route: '/moncompte' }
     ]
   },
   {
