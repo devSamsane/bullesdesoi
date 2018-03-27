@@ -50,7 +50,8 @@ app-log.json
 chalkConf.txt
 
 # assets
-/src/assets/pictures/*
+client/src/assets/pictures/*
+client/src/assets/keys/*
 
 # certs & keys
 /server/config/sslcerts/*
