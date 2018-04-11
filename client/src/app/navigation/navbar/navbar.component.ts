@@ -57,8 +57,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private scrollOffset: any = 0;
   private _rootUrl: string;
 
-  isLoggedIn$: Observable<boolean>;
-  isLoggedOut$: Observable<boolean>;
   user$: Observable<User>;
 
   constructor(
@@ -77,8 +75,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.isLoggedIn$ = this.authService.isLoggedIn$;
-    this.isLoggedOut$ = this.authService.isLoggedOut$;
     this.user$ = this.authService.user$;
 
     Promise.resolve().then(() => {
@@ -122,10 +118,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   // Congiguration du state de la navbar en fonction de la route
   setNavbarState(url: string): void {
-    if (url !== '/') {
-      this.navbarState = 'colored';
-    } else {
+    if (url === '/') {
       this.navbarState = 'cleared';
+    } else if (url === '/signin') {
+      this.navbarState = 'cleared';
+    } else {
+      this.navbarState = 'colored';
     }
   }
 

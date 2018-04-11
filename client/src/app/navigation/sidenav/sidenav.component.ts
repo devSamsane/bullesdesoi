@@ -35,7 +35,19 @@ export class SidenavComponent implements OnInit, OnDestroy {
     );
   }
 
+  setSectionMargin (url: string): boolean {
+    if (url === '/') {
+      return false;
+    } else if (url === '/signin') {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   ngOnDestroy() {
     this.destroyed.unsubscribe();
   }
+
+
 }
