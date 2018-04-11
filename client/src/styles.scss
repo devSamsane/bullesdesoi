@@ -27,3 +27,7 @@ body {
 .bds-margin--gt-xs {
   margin-top: 64px;
 }
+
+mat-sidenav-content > main > section {
+  background-color: mat-color($bds-primary, 50);
+}
