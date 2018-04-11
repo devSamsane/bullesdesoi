@@ -23,6 +23,7 @@ import { HomeLandingComponent } from './home/home-landing/home-landing.component
 import { HomeDescriptionComponent } from './home/home-description/home-description.component';
 import { HomeApplicationsComponent } from './home/home-applications/home-applications.component';
 import { HomeContactComponent } from './home/home-contact/home-contact.component';
+import { UsersAccountComponent } from './users/users-account/users-account.component';
 
 import { NavigationItems } from './navigation/sidenav/sidenav-menu/nav-items';
 import { AuthService } from './authentication/auth.service';
@@ -53,7 +54,8 @@ import { UIService } from './shared/ui/ui.service';
     HomeDescriptionComponent,
     HomeApplicationsComponent,
     HomeContactComponent,
-    RecaptchaDirective
+    RecaptchaDirective,
+    UsersAccountComponent
   ],
   imports: [
     BrowserModule,
