@@ -37,6 +37,7 @@ export interface ConfigProperties {
   log?: LogConfigProperties;
   db: DBConfigProperties;
   cors?: CorsConfigProperties;
+  recaptcha?: RecaptchaConfigProperties;
 }
 
 export interface CorsConfigProperties {
@@ -93,4 +94,8 @@ export interface OptionsDBConfigProperties {
 export interface AuthOptionsDBConfigProperties {
   user: string;
   pass: string;
+}
+
+export interface RecaptchaConfigProperties {
+  secret: string;
 }

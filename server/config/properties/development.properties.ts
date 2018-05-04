@@ -52,6 +52,9 @@ export const DEVELOPMENT_PROPERTIES: Properties = {
       methods: 'GET, HEAD, OPTIONS, PUT, PATCH, DELETE',
       origin: 'http://localhost:4200',
       preflightContinue: false
+    },
+    recaptcha: {
+      secret: process.env.RECAPTCHA_KEY
     }
   }
 };

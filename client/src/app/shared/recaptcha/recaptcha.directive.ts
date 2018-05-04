@@ -21,14 +21,21 @@ import {
   AbstractControl,
   NG_VALUE_ACCESSOR
 } from '@angular/forms';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export interface RecaptchaConfig {
   theme?: 'dark' | 'light';
   type?: 'audio' | 'image';
   size?: 'compact' | 'normal';
   tabindex?: number;
+}
+
+export interface RecaptchaHttpResponse {
+  success: boolean;
+  challenge_ts: string;
+  hostname: string;
 }
 
 declare const grecaptcha: any;
@@ -44,19 +51,20 @@ export const RECAPTCHA_URL = new InjectionToken('RECAPTCHA_URL');
 
 @Injectable()
 export class ReCaptchaAsyncValidator {
-  constructor(private http: Http, @Inject(RECAPTCHA_URL) private url) {}
+  constructor(private http: HttpClient, @Inject(RECAPTCHA_URL) private url) {}
 
   validateToken(token: string) {
     return (_: AbstractControl) => {
       return this.http
         .get(this.url, { params: { token } })
-        .map(res => res.json())
-        .map(res => {
-          if (!res.success) {
-            return { tokenInvalid: true };
-          }
-          return null;
-        });
+        .pipe(
+          map((res: RecaptchaHttpResponse) => {
+            if (!res.success) {
+              return { tokenInvalid: true };
+            }
+            return null;
+          })
+        );
     };
   }
 }
