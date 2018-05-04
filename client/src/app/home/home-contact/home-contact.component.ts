@@ -8,7 +8,7 @@ import { RECAPTCHA_URL } from '../../shared/recaptcha/recaptcha.directive';
   styleUrls: ['./home-contact.component.scss'],
   providers: [{
     provide: RECAPTCHA_URL,
-    useValue: 'http://localhost:3000/api/recaptcha'
+    useValue: 'https://localhost:3000/api/recaptcha'
   }]
 })
 export class HomeContactComponent implements OnInit {
