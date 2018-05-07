@@ -12,23 +12,18 @@ export class SecurityHelper {
 
   private static RSA_PRIVATE_KEY = fs.readFileSync('./server/config/sslcerts/key.pem');
   private static RSA_PUBLIC_KEY = fs.readFileSync('./server/config/sslcerts/cert.pem');
-  private static SESSION_DURATION = 1000;
+  public static TOKEN_EXPIRESIN = 1000;
 
   public static async hashPassword(password: string): Promise<string> {
     return await argon2.hash(password);
   }
 
-  public static async createSessionToken(userId: string): Promise<any> {
+  public static async createToken(userId: string): Promise<any> {
     return signJWT({}, this.RSA_PRIVATE_KEY, {
       algorithm: 'RS256',
-      expiresIn: this.SESSION_DURATION,
+      expiresIn: this.TOKEN_EXPIRESIN,
       subject: userId
     });
-  }
-
-  public static async createCsrfToken(sessionToken: string) {
-    const hash = await argon2.hash(sessionToken);
-    return hash;
   }
 
 }
