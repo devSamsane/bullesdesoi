@@ -4,12 +4,11 @@ import { DOCUMENT } from '@angular/platform-browser';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 // tslint:disable-next-line:import-blacklist
-import { Subject, Observable } from 'rxjs';
-import { takeUntil } from 'rxjs/operators/takeUntil';
-import { fromEvent } from 'rxjs/observable/fromEvent';
+import { Subject, Observable, fromEvent } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { debounceTime } from 'rxjs/operators';
 import { AuthService } from '../../authentication/auth.service';
-import { User } from '../../models/user';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'bds-navbar',
@@ -75,7 +74,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.user$ = this.authService.user$;
+    // this.user$ = this.authService.user$;
 
     Promise.resolve().then(() => {
       this.scrollContainer = this.container

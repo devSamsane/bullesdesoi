@@ -2,9 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Params, ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 // tslint:disable-next-line:import-blacklist
-import { Subject, Observable } from 'rxjs';
-import { combineLatest } from 'rxjs/observable/combineLatest';
-import { takeUntil } from 'rxjs/operators/takeUntil';
+import { Subject, Observable, combineLatest } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 import { NavigationItems } from './sidenav-menu/nav-items';
 
