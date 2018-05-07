@@ -4,9 +4,10 @@
   </button>
 
   <span class="bds-spacer"></span>
+  <p *ngIf="isAuthenticated">Bienvenue {{ user.displayName }}</p>
     <button mat-icon-button>
-      <mat-icon *ngIf="">person_outline</mat-icon>
-      <mat-icon *ngIf="" color="accent">person</mat-icon>
+      <mat-icon *ngIf="!isAuthenticated">person_outline</mat-icon>
+      <mat-icon *ngIf="isAuthenticated" color="accent">person</mat-icon>
     </button>
     <button mat-icon-button routerLink="/rdv">
       <mat-icon>event</mat-icon>

@@ -9,6 +9,8 @@ import { takeUntil } from 'rxjs/operators';
 import { debounceTime } from 'rxjs/operators';
 import { AuthService } from '../../authentication/auth.service';
 import { User } from '../../models/user.model';
+import { Store } from '@ngrx/store';
+import { AppState, selectAuthState } from '../../store/app.states';
 
 @Component({
   selector: 'bds-navbar',
@@ -56,14 +58,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private scrollOffset: any = 0;
   private _rootUrl: string;
 
-  user$: Observable<User>;
+  getState: Observable<any>;
+  isAuthenticated: false;
+  user: User = null;
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     @Inject(DOCUMENT) private document: Document,
-    private authService: AuthService
+    private authService: AuthService,
+    private store: Store<AppState>
   ) {
+    this.getState = this.store.select(selectAuthState);
+
     this.router.events.pipe(takeUntil(this.destroyed)).subscribe(event => {
       if (event instanceof NavigationEnd) {
         const rootUrl = router.url.split('#')[0];
@@ -74,7 +81,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // this.user$ = this.authService.user$;
+    // tslint:disable-next-line:no-shadowed-variable
+    this.getState.subscribe(state => {
+      this.isAuthenticated = state.isAuthenticated;
+      this.user = state.user;
+    });
 
     Promise.resolve().then(() => {
       this.scrollContainer = this.container
