@@ -36,6 +36,13 @@ import { MapComponent } from './shared/map/map.component';
 import { RecaptchaDirective } from './shared/recaptcha/recaptcha.directive';
 import { UIService } from './shared/ui/ui.service';
 
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './store/effects/auth.effects';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/app.states';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -68,7 +75,13 @@ import { UIService } from './shared/ui/ui.service';
     MaterialModule,
     FlexLayoutModule,
     PagesModule,
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyBEidIrV8EFlQRyt_ra6qcCoBlJTev1mtE' })
+    StoreModule.forRoot(reducers, {}),
+    EffectsModule.forRoot([AuthEffects]),
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyBEidIrV8EFlQRyt_ra6qcCoBlJTev1mtE' }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    }),
   ],
   providers: [NavigationItems, AuthService, UIService],
   bootstrap: [AppComponent]
