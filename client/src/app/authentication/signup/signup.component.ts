@@ -4,6 +4,9 @@ import { AuthService } from '../auth.service';
 import { User } from '../../models/user.model';
 import { Router } from '@angular/router';
 import { UIService } from '../../shared/ui/ui.service';
+import { AppState } from '../../store/app.states';
+import { Store } from '@ngrx/store';
+import { Signup } from '../../store/actions/auth.actions';
 
 @Component({
   selector: 'bds-signup',
@@ -18,7 +21,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private uiService: UIService
+    private uiService: UIService,
+    private store: Store<AppState>
     ) { }
 
   ngOnInit() {
@@ -32,16 +36,10 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  signup(form) {
-    if (form.email && form.password && form.password === form.confirmPassword) {
-      this.authService.signup(form)
-        .subscribe(
-          () => {
-            this.router.navigateByUrl('/');
-            this.uiService.showSnackbar('Utilisateur créé', null, 3000);
-          },
-          response => this.errors = response.error.errors
-        );
+  signup(formData) {
+    if (formData.email && formData.password && formData.password === formData.confirmPassword) {
+      const payload = formData;
+      this.store.dispatch(new Signup(payload));
     }
   }
 

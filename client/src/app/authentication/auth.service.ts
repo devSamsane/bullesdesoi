@@ -6,7 +6,7 @@ import * as moment from 'moment';
 import { Observable, BehaviorSubject, throwError, pipe } from 'rxjs';
 import { switchMap, map, shareReplay, tap, catchError, filter } from 'rxjs/operators';
 
-import { User } from '../models/user.model';
+import { User, UserSignup } from '../models/user.model';
 import { Credentials } from '../models/credentials.model';
 
 
@@ -31,31 +31,16 @@ export class AuthService {
 
   constructor(protected http: HttpClient) { }
 
-  signup(user: User) {
+  public signup(user: UserSignup): Observable<any> {
     const body = JSON.stringify(user);
     return this.http
-      .post<User>(`${this.url}/api/auth/signup`, body, this.httpOptions);
-
+      .post<UserSignup>(`${this.url}/api/auth/signup`, body, this.httpOptions);
   }
 
-
-
-      // .pipe(
-      //   catchError(this.handleError),
-      //   shareReplay(),
-      //   tap(res => this.setSession(res)),
-      //   tap(res => this.subject.next(res)))
-      // .pipe(catchError(this.handleError));
-
-
-  //  signup(user: User): {
-  //     const body = JSON.stringify(user);
-  //     return this.http
-  //       .post<User>(`${this.url}/api/auth/signup`, body, this.httpOptions)
-  //       .tap(res => this.setSession(res))
-  //       .shareReplay()
-  //       .tap(res => this.subject.next(res));
-  //   }
+  public signin({email, password}: Credentials): Observable<any> {
+    return this.http
+      .post<Credentials>(`${this.url}/api/auth/signin`, {email, password}, this.httpOptions);
+  }
 
   private handleError(error: HttpErrorResponse) {
 
@@ -70,18 +55,6 @@ export class AuthService {
       'Une erreur est survenue, merci de réessayer'
     );
   }
-
-  private setToken(authResult) {
-    // const expiresAt = moment().add(authResult.expiresIn, 'second');
-
-    localStorage.setItem('bds-token', authResult.token);
-    // localStorage.setItem('bds_expires_at', JSON.stringify(expiresAt.valueOf()));
-  }
-
-    signin({email, password}: Credentials): Observable<any> {
-      return this.http
-        .post<Credentials>(`${this.url}/api/auth/signin`, {email, password}, this.httpOptions);
-    }
 
 
 }

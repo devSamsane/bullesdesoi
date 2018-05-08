@@ -19,7 +19,7 @@ export class UsersService {
    */
   static async createUser(newUser: UserModel) {
     newUser.provider = 'local';
-    newUser.displayName = `${newUser.firstName}, ${newUser.lastName}`;
+    newUser.displayName = `${newUser.firstName} ${newUser.lastName}`;
 
     // Hashage du password
     if (newUser.password) {

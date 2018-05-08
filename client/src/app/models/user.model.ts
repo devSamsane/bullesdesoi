@@ -14,3 +14,11 @@ export class User {
     public seances?: string[]
   ) { }
 }
+
+export interface UserSignup {
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  phone?: string;
+}
